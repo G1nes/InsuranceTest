@@ -20,8 +20,8 @@ public abstract class BaseSteps {
 
     public BaseSteps(){
     }
-    @BeforeClass
-    public static void setUp(){
+    @Before
+    public void setUp(){
         switch (stepsProperties.getProperty("browser")){
             case "chrome":
                 driver = new ChromeDriver();
