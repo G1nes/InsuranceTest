@@ -1,26 +1,21 @@
-package steps;
-
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import steps.StepsProperties;
 
-import java.util.ArrayList;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseSteps {
+public abstract class TestLauncher {
     private static WebDriver driver;
     private static String url;
-    private static Properties stepsProperties=StepsProperties.getInstance().getProperties();
+    private static Properties stepsProperties= StepsProperties.getInstance().getProperties();
 
-    public BaseSteps(){
+    public TestLauncher(){
     }
-    @Before
+    @BeforeClass
     public void setUp(){
         switch (stepsProperties.getProperty("browser")){
             case "chrome":
@@ -29,9 +24,9 @@ public abstract class BaseSteps {
             case "firefox":
                 driver = new FirefoxDriver();
                 System.setProperty("webdriver.gecko.driver", stepsProperties.getProperty("webdriver.gecko.driver"));
-                default:
-                    driver = new ChromeDriver();
-                    System.setProperty("webdriver.chrome.driver", stepsProperties.getProperty("webdriver.chrome.driver"));
+            default:
+                driver = new ChromeDriver();
+                System.setProperty("webdriver.chrome.driver", stepsProperties.getProperty("webdriver.chrome.driver"));
         }
         url = stepsProperties.getProperty("url");
         driver.get(url);
@@ -42,16 +37,5 @@ public abstract class BaseSteps {
     @AfterClass
     public static void endTest(){
         driver.close();
-    }
-    public static WebDriver getDriver(){
-        return driver;
-    }
-    public void fillField(WebElement element, String value){
-        element.clear();
-        element.sendKeys(value);
-    }
-    public void selectNextTab(){
-        ArrayList<String>tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(tabs.size()-1));
     }
 }

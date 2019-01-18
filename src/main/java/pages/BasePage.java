@@ -1,15 +1,19 @@
 package pages;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import steps.BaseSteps;
 
-import java.util.Properties;
 
 public abstract class BasePage extends BaseSteps {
-    @Before
-    public void setUp(){
+    public BasePage(){
+    }
+    @Override
+    public void fillField(WebElement element, String value) {
+        super.fillField(element, value);
+    }
 
+    @Override
+    public void selectNextTab() {
+        super.selectNextTab();
     }
 }
