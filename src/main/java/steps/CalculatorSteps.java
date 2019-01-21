@@ -1,8 +1,8 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.BasePage;
 import pages.CalculatorPage;
-import ru.yandex.qatools.allure.annotations.Step;
 
 public class CalculatorSteps extends BasePage {
     @Step

@@ -1,10 +1,10 @@
 package steps;
 
-
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import pages.BasePage;
 import pages.OrderPage;
-import ru.yandex.qatools.allure.annotations.Step;
+
 
 public class OrderSteps extends BasePage {
     OrderPage op = new OrderPage(BasePage.getDriver());

@@ -1,10 +1,12 @@
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.*;
 
 public class PageObjectInsuranceTest extends BasePage {
 
     @Test
+    @Ignore
     public void sendRequest (){
         MainPage mp = new MainPage(getDriver());
         InsuranceTypePage itp = new InsuranceTypePage(getDriver());

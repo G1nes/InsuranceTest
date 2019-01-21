@@ -1,9 +1,9 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import pages.BasePage;
 import pages.InsuranceTypePage;
-import ru.yandex.qatools.allure.annotations.Step;
 
 public class InsuranceTypeSteps extends BasePage {
     @Step
