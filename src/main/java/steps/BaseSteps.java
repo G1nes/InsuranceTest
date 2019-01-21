@@ -1,9 +1,7 @@
-package steps;
+/*package steps;
 
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,18 +18,21 @@ public abstract class BaseSteps {
 
     public BaseSteps(){
     }
-    @Before
-    public void setUp(){
+    @BeforeClass
+    public static void setUp(){
         switch (stepsProperties.getProperty("browser")){
             case "chrome":
-                driver = new ChromeDriver();
                 System.setProperty("webdriver.chrome.driver", stepsProperties.getProperty("webdriver.chrome.driver"));
+                driver = new ChromeDriver();
+                break;
             case "firefox":
-                driver = new FirefoxDriver();
                 System.setProperty("webdriver.gecko.driver", stepsProperties.getProperty("webdriver.gecko.driver"));
+                driver = new FirefoxDriver();
+                break;
                 default:
-                    driver = new ChromeDriver();
                     System.setProperty("webdriver.chrome.driver", stepsProperties.getProperty("webdriver.chrome.driver"));
+                    driver = new ChromeDriver();
+                    break;
         }
         url = stepsProperties.getProperty("url");
         driver.get(url);
@@ -54,4 +55,4 @@ public abstract class BaseSteps {
         ArrayList<String>tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(tabs.size()-1));
     }
-}
+}*/

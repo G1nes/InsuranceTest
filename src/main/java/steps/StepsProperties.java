@@ -1,4 +1,4 @@
-package steps;
+/*package steps;
 
 import java.io.*;
 import java.util.Properties;
@@ -23,4 +23,4 @@ public class StepsProperties {
     public Properties getProperties (){
         return properties;
     }
-}
+}*/
